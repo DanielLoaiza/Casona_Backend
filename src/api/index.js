@@ -1,5 +1,7 @@
 import express from 'express'
 import user from 'src/api/user'
+import table from 'src/api/table'
+import food from 'src/api/food'
 
 // se crea el nuevo router para almacenar rutas
 const router = express.Router()
@@ -10,6 +12,8 @@ router.use((req, res, next) => {
 })
 
 router.use('/users', user)
+router.use('/tables', table)
+router.use('/food', food)
 
 
 // se exporta el nuevo router

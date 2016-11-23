@@ -4,7 +4,8 @@ import mongoose, {Schema} from 'mongoose'
 let FoodSchema = new Schema({
     name: String,
     price: Number,
-    description: String
+    description: String,
+    section: String
 })
 
 // se crea el modelo de la coleccion

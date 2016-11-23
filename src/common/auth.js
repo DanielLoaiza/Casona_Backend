@@ -3,7 +3,7 @@ import jwt from 'jwt-simple'
 // middleware que valida si esta llegando un header custom, esto se usa en rutas que no necesitan auth
 export function checkUnsecuredRoute(req, res) {
 	let success = false
-	if (req && req.headers && req.headers._authorization && req.headers._authorization === _g.constants.HEADER_FOR_NO_AUTH_ROUTES) {
+	if (req && req.headers && req.headers.authorization && req.headers.authorization === _g.constants.HEADER_FOR_NO_AUTH_ROUTES) {
 		success = true
 	} else {
 		res.json('unauthorized')

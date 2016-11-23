@@ -8,6 +8,7 @@ let OrderSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'OrderItem',
     }],
+    waitressName: String,
     createdAt: {
         type: Date,
         default: Date.now

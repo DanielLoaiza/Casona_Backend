@@ -16,11 +16,10 @@ export function addUser(userData) {
     newUser.name = userData['name']
     newUser.lastName = userData['lastname']
     newUser.salt = uniqid()
-    newUser.password = _g.utils.shaEncrypt(newUser.salt + newUser.password)
+    newUser.password = _g.utils.shaEncrypt(newUser.salt + userData.password)
     newUser.email = userData['email']
       return newUser.save()
   }).then((newUser) => {
-        console.log("then new", newUser)
     // registrado!, se crea el token
     var token = jwt.encode(newUser, _g.configDatabase.secret)
 
@@ -30,4 +29,28 @@ export function addUser(userData) {
   }).catch((e) => {
        return Promise.reject(e)
   })
+}
+
+export function authUser(userData) {
+  return User.findOne({email : userData.email}).exec()
+      .then((user) => {
+        // se encontró el usuario
+        if(user) {
+          let password = _g.utils.shaEncrypt(user.salt + userData.password)
+          if(password == user.password) {
+            delete user.password
+            delete user.salt
+            var token = jwt.encode(user, _g.configDatabase.secret)
+            return Promise.resolve({success: true, user: user, token: token})
+          } else {
+            return Promise.reject({status:_g.constants.ERROR_CODES.HTTP_STATUS.UNAUTHORIZED})
+          }
+
+        } else {
+          return Promise.reject({status:_g.constants.ERROR_CODES.HTTP_STATUS.NOT_FOUND})
+        }
+      })
+      .catch((e) => {
+        return Promise.reject(e)
+      })
 }
