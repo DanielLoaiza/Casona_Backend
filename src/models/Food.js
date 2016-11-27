@@ -5,7 +5,8 @@ let FoodSchema = new Schema({
     name: String,
     price: Number,
     description: String,
-    section: String
+    section: String,
+    has_tip: Boolean
 })
 
 // se crea el modelo de la coleccion

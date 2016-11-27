@@ -6,7 +6,7 @@ let OrderSchema = new Schema({
     total: Number,
     orders: [{
         type: Schema.Types.ObjectId,
-        ref: 'OrderItem',
+        ref: 'OrderItem'
     }],
     waitressName: String,
     createdAt: {
