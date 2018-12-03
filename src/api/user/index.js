@@ -1,5 +1,5 @@
 import express from 'express'
-import {addUser, authUser} from 'src/lib/user'
+import {addUser, authUser} from '../../lib/user'
 
 // se crea el nuevo router para almacenar rutas
 const router = express.Router()
@@ -46,7 +46,7 @@ router.post('/', (req, res) => {
  * this endpoint logs in the user
  */
 router.post('/auth', (req, res) => {
-    
+
     if (_g.auth.checkUnsecuredRoute(req, res)) {
         let body = {
             email: req.body.email && _g.validator.isEmail(req.body.email) ? _g.validator.escape(_g.validator.trim(req.body.email)) : null,

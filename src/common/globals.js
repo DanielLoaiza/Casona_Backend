@@ -1,7 +1,7 @@
-import configDatabase from 'src/config/database'
-import {checkUnsecuredRoute, getLoggedUserData} from 'src/common/auth'
-import {HEADER_FOR_NO_AUTH_ROUTES,GENERAL,RESPONSES, ERROR_CODES} from 'src/common/constants'
-import {validateLang, getParsedInt, shaEncryp, randomString, formatString} from 'src/common/utilities'
+import configDatabase from '../config/database'
+import {checkUnsecuredRoute, getLoggedUserData} from './auth'
+import {HEADER_FOR_NO_AUTH_ROUTES,GENERAL,RESPONSES, ERROR_CODES} from './constants'
+import {validateLang, getParsedInt, shaEncryp, randomString, formatString} from './utilities'
 import validator from 'validator'
 
 

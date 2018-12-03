@@ -1,4 +1,4 @@
-import {default as User} from 'src/models/User'
+import {default as User} from '../../models/User'
 import uniqid from 'uniqid'
 import jwt from 'jwt-simple'
 

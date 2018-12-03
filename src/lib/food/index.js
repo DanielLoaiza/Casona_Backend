@@ -1,4 +1,4 @@
-import {default as Food} from 'src/models/Food'
+import {default as Food} from '../../models/Food'
 
 
 export function addFood(foodData) {

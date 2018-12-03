@@ -1,8 +1,8 @@
 import express from 'express'
-import user from 'src/api/user'
-import table from 'src/api/table'
-import food from 'src/api/food'
-import order from 'src/api/order'
+import user from './user'
+import table from './table'
+import food from './food'
+import order from './order'
 
 // se crea el nuevo router para almacenar rutas
 const router = express.Router()

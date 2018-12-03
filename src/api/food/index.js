@@ -1,5 +1,5 @@
 import express from 'express'
-import {addFood, getFood} from 'src/lib/food'
+import {addFood, getFood} from '../../lib/food'
 
 // se crea el nuevo router para almacenar rutas
 const router = express.Router()
@@ -16,7 +16,7 @@ router.post('/', (req, res) => {
             description: req.body.description ? _g.validator.escape(_g.validator.trim(req.body.description)) : null,
             section: req.body.section ? _g.validator.escape(_g.validator.trim(req.body.section)) : null
         }
-        
+
         let areFieldsRight = body.name && body.price && body.description
         // validamos los fields requeridos
         if (areFieldsRight) {

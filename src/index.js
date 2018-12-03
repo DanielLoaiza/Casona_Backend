@@ -2,10 +2,10 @@ import http from 'http'
 import express from 'express'
 import cors from 'cors'
 import mongoose from 'mongoose'
-import api from 'src/api'
 import bodyParser from 'body-parser'
 import morgan from 'morgan'
-import globals from 'src/common/globals'
+import globals from './common/globals'
+import api from './api'
 import { Promise } from 'bluebird'
 
 // se inicia express para controlar las rutas y archivos estaticos
@@ -19,6 +19,11 @@ const port = process.env.PORT || _g.configDatabase.port
 mongoose.connect(process.env.MONGOLAB_URI || _g.configDatabase.database)
 // set Promise provider to bluebird
 mongoose.Promise = Promise;
+
+mongoose.connection.on("error", (err) => {
+  console.log ("Could not connect to mongo server!")
+  console.log (err.message)
+})
 
 mongoose.connection.on('open', () => {
     console.log('Mongo is connected')

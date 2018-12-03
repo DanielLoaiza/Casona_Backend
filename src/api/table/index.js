@@ -1,5 +1,5 @@
 import express from 'express'
-import {addTable, getTables} from 'src/lib/table'
+import {addTable, getTables} from '../../lib/table'
 
 // se crea el nuevo router para almacenar rutas
 const router = express.Router()
