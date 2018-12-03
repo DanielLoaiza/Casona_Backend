@@ -4,6 +4,8 @@ import {_extend} from 'util'
 // se crea el schema que utilizará el modelo
 let OrderSchema = new Schema({
     quantity: Number,
+    cancelled: Boolean,
+    comments: String,
     plate: {
         type: Schema.Types.ObjectId,
         ref: 'Food'

@@ -4,6 +4,8 @@ import {_extend} from 'util'
 // se crea el schema que utilizará el modelo
 let OrderSchema = new Schema({
     total: Number,
+    tip: Number,
+    status: Number,
     orders: [{
         type: Schema.Types.ObjectId,
         ref: 'OrderItem'
